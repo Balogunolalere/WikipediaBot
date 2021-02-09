@@ -66,7 +66,7 @@ def main():
     # log all errors
 
     # Start the Bot
-    upater.start_polling(listen="0.0.0.0",
+    updater.start_polling(listen="0.0.0.0",
                           port=int(PORT),
                           url_path="1441958925:AAGFc8_o25zl23bDLxWMLknordLlPDqZN7M")
     updater.bot.setWebhook('https://that-wiki-bot.herokuapp.com/' + "1441958925:AAGFc8_o25zl23bDLxWMLknordLlPDqZN7M")
