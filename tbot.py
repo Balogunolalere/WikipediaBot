@@ -1,9 +1,10 @@
 from telegram import update
 from telegram.ext import Updater, CommandHandler, MessageHandler
 import wikipedia
+import os
+PORT = int(os.environ.get('PORT', 5000))
 
-
-
+TOKEN = "1441958925:AAGFc8_o25zl23bDLxWMLknordLlPDqZN7M"
 
 def wiki_summary(update, context):
 	try:
@@ -65,7 +66,10 @@ def main():
     # log all errors
 
     # Start the Bot
-    updater.start_polling()
+    updater.start_webhook(listen="0.0.0.0",
+                          port=int(PORT),
+                          url_path=TOKEN)
+    updater.bot.setWebhook('https://that-wiki-bot.herokuapp.com/' + TOKEN)
 	# Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
     # start_polling() is non-blocking and will stop the bot gracefully.
